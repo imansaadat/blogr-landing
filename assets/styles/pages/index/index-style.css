@@ -13,6 +13,7 @@ html {
 }
 
 body {
+  overflow-x: hidden;
   font-family: sans-serif;
 }
 
@@ -109,7 +110,7 @@ ul {
 .editor_section {
   height: 75rem;
   position: relative;
-  margin-bottom: 20rem;
+  margin-bottom: 5rem;
 }
 .editor_section .title {
   font-size: 3.2rem;
@@ -145,6 +146,38 @@ ul {
 }
 .editor_section .content .image_content img {
   width: 100%;
+}
+
+/*infrastructure*/
+.infrastructure {
+  width: 100%;
+  height: 35rem;
+  background: #363851 url(../../../images/bg-pattern-circles.svg) no-repeat -60% 82%/74%;
+  margin-bottom: 20rem;
+  border-top-right-radius: 7.9rem;
+  border-bottom-left-radius: 7.9rem;
+}
+.infrastructure .content .image {
+  width: 50%;
+  margin-top: -6%;
+  padding-right: 4rem;
+}
+.infrastructure .content .image img {
+  width: 100%;
+}
+.infrastructure .content .text_info {
+  width: 50%;
+  margin-top: -8rem;
+}
+.infrastructure .content .text_info h2 {
+  color: #ffffff;
+  font-size: 2.6rem;
+  margin-bottom: 1.2rem;
+}
+.infrastructure .content .text_info p {
+  color: #A9ACB1;
+  line-height: 2.5rem;
+  font-size: 1.6rem;
 }
 
 /*# sourceMappingURL=index-style.css.map */
