@@ -1,5 +1,5 @@
 @use '../../_sass/variable'as *;
-
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +13,7 @@ html {
 
 body {
   overflow-x: hidden;
-  font-family: sans-serif;
+  font-family: 'Overpass', sans-serif;
 }
 
 a {
@@ -50,15 +50,18 @@ ul {
 /*header*/
 .header {
   width: 100%;
-  height: 45rem;
-  padding: 2rem 0;
+  height: 100%;
+  padding: 2rem 0 6rem 0;
   background: #FE866E url(../../../images/bg-pattern-intro.svg) no-repeat 35% 53%/173%;
   border-bottom-left-radius: 7.9rem;
   margin-bottom: 12rem;
 
   .main_nav {
     justify-content: space-between;
-
+   .hamburger_menu{
+     display: none;
+     cursor: pointer;
+   }
     .main_menu {
       flex-grow: 1;
       justify-content: flex-start;
@@ -70,7 +73,6 @@ ul {
         a {
           position: relative;
           display: inline-block;
-
           &::after {
             content: '';
             display: inline-block;
@@ -148,10 +150,9 @@ ul {
 }
 
 /*editor section*/
-.editor_section, .feature_section {
-  height: 75rem;
+.editor_section,.feature_section {
   position: relative;
-
+  margin-bottom: 35rem;
   .title {
     font-size: 3.2rem;
     text-align: center;
@@ -167,6 +168,7 @@ ul {
 
       &.feature_content {
         margin-left: auto;
+        padding-top: 8rem;
       }
 
       .text_info {
@@ -210,8 +212,6 @@ ul {
 /*infrastructure*/
 .infrastructure {
   width: 100%;
-  height: 35rem;
-  margin-top: 10rem;
   background: #363851 url(../../../images/bg-pattern-circles.svg) no-repeat -60% 82%/74%;
   margin-bottom: 20rem;
   border-top-right-radius: 7.9rem;
@@ -251,41 +251,207 @@ ul {
 /*footer*/
 .footer {
   background-color: #24242C;
-  padding: 3.6rem 3rem;
+  padding: 3.6rem 0;
   border-top-right-radius: 7.9rem;
 
   .footer_content {
-
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
 
     .logo_footer {
-      align-self: flex-start;
+      img {
+        width: 10rem;
+      }
     }
 
-    .links_footer {
-      display: flex;
-      justify-content: space-between;
-      flex-grow: 1;
-      margin-left: 10rem;
-
+    .footer_link {
       h4 {
-        display: flex;
         font-size: 1.8rem;
-        align-items: center;
-        color: #ffffff;
+        color: #fff;
         margin-bottom: 2rem;
       }
 
-      li {
+      a {
         line-height: 3rem;
+        color: $Text_Color;
+        font-size: 1.5rem;
 
-        a {
-          color: $Text_Color;
-          font-size: 1.5rem;
+        &:hover {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
 
-          &:hover {
-            color: #ffffff;
-          }
+
+
+/*responsive styles*/
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 768px) {
+  /*responsive menu*/
+  .header{
+     .main_nav{
+       flex-direction: column;
+       flex-wrap: wrap;
+       .hamburger_menu{
+         display: block;
+         position: absolute;
+         top: 2.5rem;
+         right: 2rem;
+       }
+       .logo{
+         align-self: flex-start;
+       }
+       .main_menu{
+
+         display: none;
+         margin: 0;
+         li{
+           a{
+             padding: 1rem 2.5rem;
+             &::after{
+               display: none;
+             }
+             &:hover{
+               color: $Title_color;
+             }
+           }
+         }
+
+         &.show{
+           display: block;
+         }
+       }
+       .btns{
+         top: 15rem;
+         display: none;
+         .btn{
+           text-align: center;
+           display: block;
+           margin: 0;
+           &:hover{
+             background: none;
+             color: $Title_color;
+           }
+         }
+         &.show{
+           display: block;
+         }
+       }
+     }
+    .intro_content{
+      h1{
+        font-size: 3rem;
+      }
+      .btns{
+        .btn{
+          display: block;
+          margin-bottom: 1.2rem;
+        }
+      }
+    }
+  }
+
+  .editor_section, .feature_section {
+    margin-bottom: 10rem;
+
+    .title {
+      margin-bottom: 4rem;
+    }
+
+    .content {
+      flex-direction: column-reverse;
+
+      .text_content {
+        width: 100%;
+        text-align: center;
+
+        &.feature_content {
+          margin: 0;
+        }
+      }
+
+      .image_content {
+        width: 100%;
+        right: 0;
+        position: static;
+        margin-bottom: 3rem;
+
+      }
+    }
+  }
+  .infrastructure {
+    background: #363851;
+    padding: 4rem 0;
+    margin-bottom: 6rem;
+
+    .content {
+      flex-direction: column;
+      text-align: center;
+
+      .image {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 8rem;
+      }
+      .text_info{
+        width: 100%;
+
+      }
+    }
+  }
+  .footer {
+    .footer_content {
+      grid-template-columns: repeat(3, 1fr);
+
+      .logo_footer {
+        grid-column: 1 / 4;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .footer_link {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .editor_section,.feature_content{
+    .title{
+      font-size: 2.5rem;
+    }
+  }
+  .infrastructure{
+    .content{
+      .text_info{
+        h2{
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+  .footer{
+    .footer_content {
+      grid-template-columns:1fr;
+
+      .logo_footer {
+        grid-column: 1 / 1;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .footer_link{
+        margin-bottom:1.8rem;
+        &:last-child{
+          margin: 0;
         }
       }
     }
