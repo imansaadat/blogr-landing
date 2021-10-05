@@ -102,6 +102,11 @@ ul {
               width: 100%;
             }
           }
+          &.btn{
+            &::after{
+              display: none;
+            }
+          }
         }
       }
     }

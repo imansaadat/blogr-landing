@@ -104,6 +104,9 @@ ul {
 .header .main_nav .main_menu li a:hover::after {
   width: 100%;
 }
+.header .main_nav .main_menu li a.btn::after {
+  display: none;
+}
 .header .main_nav .logo img {
   max-width: 8rem;
 }
