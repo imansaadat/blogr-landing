@@ -37,6 +37,10 @@ ul {
   color: #ffffff;
 }
 
+.hidden{
+  overflow-y: hidden;
+}
+
 .flex {
   display: flex;
   justify-content: center;
@@ -61,15 +65,23 @@ ul {
    .hamburger_menu{
      display: none;
      cursor: pointer;
+     font-size: 2rem;
+     color: #fff;
    }
     .main_menu {
       flex-grow: 1;
-      justify-content: flex-start;
       margin-left: 4rem;
-
+      justify-content: flex-start;
+      .close{
+        display: none;
+        font-size: 2rem;
+        color: #fff;
+      }
+        .btns{
+          margin-left: auto;
+        }
       li {
         margin: 0 2rem;
-
         a {
           position: relative;
           display: inline-block;
@@ -290,62 +302,71 @@ ul {
 /*responsive styles*/
 
 @media (max-width: 992px) {
-
+  html{
+    font-size: 55%;
+  }
 }
 
 @media (max-width: 768px) {
   /*responsive menu*/
   .header{
-     .main_nav{
-       flex-direction: column;
-       flex-wrap: wrap;
+    .main_nav{
+      
+       .main_menu{
+         width: 0;
+         height: 100%;
+         display: flex;
+         flex-direction: column; 
+         justify-content: center;
+         position: fixed;
+         margin:0;
+         right: 0;
+         top: 0;
+         overflow: hidden;
+         background-color: #FF6663;
+         z-index: 1000;
+         transition: .3s ease-in-out 200ms;
+         li{
+           margin: 1rem 0;
+           opacity: 0;
+           transition: .3s ease-in-out;
+         }
+         .close{
+           cursor: pointer;
+           position: absolute;
+           display: block;
+           top: 1.8rem;
+           left: 1.2rem;
+
+         }
+         &.show{
+           width: 50%;
+           overflow: visible;
+           transition: .3s ease-in-out ;
+           li,.btns{
+             opacity: 1;
+             transition: .3s ease-in-out 200ms;
+           }
+         }
+       }
+
+       .btns{
+         width: 100%;
+         text-align: center; 
+         opacity: 0;
+         transition: .3s ease-in-out;
+         .btn{
+           display: inline-block;
+         }
+       }
        .hamburger_menu{
          display: block;
          position: absolute;
-         top: 2.5rem;
-         right: 2rem;
-       }
-       .logo{
-         align-self: flex-start;
-       }
-       .main_menu{
-
-         display: none;
-         margin: 0;
-         li{
-           a{
-             padding: 1rem 2.5rem;
-             &::after{
-               display: none;
-             }
-             &:hover{
-               color: $Title_color;
-             }
-           }
-         }
-
-         &.show{
-           display: block;
-         }
-       }
-       .btns{
-         top: 15rem;
-         display: none;
-         .btn{
-           text-align: center;
-           display: block;
-           margin: 0;
-           &:hover{
-             background: none;
-             color: $Title_color;
-           }
-         }
-         &.show{
-           display: block;
-         }
+         right: 3rem;
        }
      }
     .intro_content{
+      margin-top: 6rem;
       h1{
         font-size: 3rem;
       }
@@ -374,6 +395,7 @@ ul {
 
         &.feature_content {
           margin: 0;
+          padding:0;
         }
       }
 
