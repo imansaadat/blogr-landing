@@ -65,7 +65,7 @@ ul {
    .hamburger_menu{
      display: none;
      cursor: pointer;
-     font-size: 2rem;
+     font-size: 2.6rem;
      color: #fff;
    }
     .main_menu {
@@ -74,8 +74,12 @@ ul {
       justify-content: flex-start;
       .close{
         display: none;
-        font-size: 2rem;
+        font-size: 2.6rem;
         color: #fff;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 1.2rem;
       }
         .btns{
           margin-left: auto;
@@ -337,12 +341,7 @@ ul {
            transition: .3s ease-in-out;
          }
          .close{
-           cursor: pointer;
-           position: absolute;
-           display: block;
-           top: 1.8rem;
-           left: 1.2rem;
-
+          display: block;
          }
          &.show{
            width: 50%;
